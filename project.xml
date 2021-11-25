@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="" package="com.sample." version="1.0.0" company="Company Name" />
+	<app main="Main" path="Export" file="test" />
+	
+	<define name="CONFIG" value="desktop" />
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="sion" />
+	
+		<assets path="assets/graphics" include="*.png" rename="images"/>
+	<assets path="assets" rename="assets">
+		<font path="graphics/Font.ttf" id="MyFont" />
+		<font path="graphics/Font.woff" id="MyWebFont" />
+	</assets>
+	
+</project>

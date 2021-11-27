@@ -17,7 +17,9 @@ class Gfx extends Sprite {
 		min_windowwidth = 768;
 		min_windowheight = 540;
 		updatebackground = 5;
-		#if native
+		#if air
+		var ttffont = Assets.getFont("MyFlashFont");
+		#elseif native
 		var ttffont = Assets.getFont("MyFont");
 		#end
 		#if web

@@ -23,6 +23,7 @@ import js.html.File;
 import openfl.external.ExternalInterface;
 import haxe.io.Bytes;
 import haxe.crypto.Base64;
+import lime.media.AudioManager;
 #end
 
 class Control extends Sprite {
@@ -304,7 +305,7 @@ class Control extends Sprite {
 		if (musicplaying) {
 			if (looptime >= boxcount) {
 				looptime -= boxcount;
-				SetSwing();
+				// SetSwing();
 				arrange.currentbar++;
 				if (arrange.currentbar >= arrange.loopend) {
 					arrange.currentbar = arrange.loopstart;
@@ -369,7 +370,7 @@ class Control extends Sprite {
 			}
 
 			looptime = looptime + 1;
-			SetSwing();
+			// SetSwing();
 		}
 	}
 
@@ -1649,7 +1650,15 @@ class Control extends Sprite {
 
 	public static function startmusic():Void {
 		if (!musicplaying) {
+			#if web
+			var v:js.lib.Promise<Dynamic> = AudioManager.context.web.resume();
+			v.then(function(res:Dynamic) {
+				_driver.resume();
+				musicplaying = !musicplaying;
+			});
+			#else
 			musicplaying = !musicplaying;
+			#end
 		}
 	}
 
@@ -1816,7 +1825,7 @@ class Control extends Sprite {
 	public static var list:Listclass = new Listclass();
 	public static var secondlist:Listclass = new Listclass();
 	public static var midilistselection:Dynamic /*:Int*/;
-	public static var musicplaying:Bool = true;
+	public static var musicplaying:Bool = false;
 	public static var nowexporting:Bool = false;
 	public static var followmode:Bool = false;
 	public static var bpm:Dynamic /*:Int*/;

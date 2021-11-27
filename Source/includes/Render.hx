@@ -1,4 +1,4 @@
-﻿package includes;
+package includes;
 
 import bigroom.input.KeyPoll;
 
@@ -115,7 +115,7 @@ class Render {
 					Gfx.fillrect(Gfx.screenwidth - Guiclass.tx - 408 + 24, Gfx.linesize, 408, Gfx.linesize * 10, 5);
 			}
 
-			// Cache bitmap at this poInt
+			// Cache bitmap at this point
 			Gfx.updatebackground--;
 			if (Gfx.updatebackground == 0) {
 				Gfx.settrect(Std.int(Gfx.backbuffer.rect.x), Std.int(Gfx.backbuffer.rect.y), Std.int(Gfx.backbuffer.rect.width),

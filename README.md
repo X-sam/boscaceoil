@@ -1,14 +1,19 @@
 ![logo](boscalogo.png "Bosca Ceoil")
 
-A simple music making program. Try it out now at boscaceoil.net!
+A simple music making program, now in Haxe through the power of openFL!
 
-Terry Cavanagh / http://www.distractionware.com
+Originally by Terry Cavanagh / http://www.distractionware.com
 
-## Contributing to Bosca Ceoil
+Haxe port by Sam! Bonfante  
 
-Bosca Ceoil is now stable at version 2.0. However, contibutions are always welcome!
 
-See [howtobuild.MD](https://github.com/TerryCavanagh/boscaceoil/blob/master/how%20to%20build.MD) for a detailed guide to compiling Bosca Ceoil.
+
+Try it out now at [x-sam.github.io/boscaceoil](x-sam.github.io/boscaceoil/)
+
+
+
+
+This port requires a [modified version of openFL](https://github.com/X-sam/openfl), until [this PR](https://github.com/openfl/openfl/pull/2515) is merged.
 
 ## Open Source Licence
 

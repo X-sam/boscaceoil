@@ -13,7 +13,7 @@ Try it out now at [x-sam.github.io/boscaceoil](x-sam.github.io/boscaceoil/)
 
 
 
-This port requires a [modified version of openFL](https://github.com/X-sam/openfl), until [this PR](https://github.com/openfl/openfl/pull/2515) is merged.
+Building this port requires a [modified version of openFL](https://github.com/X-sam/openfl), until [this PR](https://github.com/openfl/openfl/pull/2515) is merged.
 
 ## Open Source Licence
 

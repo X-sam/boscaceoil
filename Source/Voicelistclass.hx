@@ -408,7 +408,7 @@ class Voicelistclass {
 		}
 	}
 
-	public function create(cat:String, t1:String, t2:String, pal:Dynamic /*:Int*/, midimapping = -1):Void {
+	public function create(cat:String, t1:String, t2:String, pal:Int, midimapping = -1):Void {
 		category.push(cat);
 		name.push(t1);
 		voice.push(t2);
@@ -433,7 +433,7 @@ class Voicelistclass {
 		}
 	}
 
-	public function add(t1:String, t2:String, pal:Dynamic /*:Int*/):Void {
+	public function add(t1:String, t2:String, pal:Int):Void {
 		subname[sublistsize] = t1;
 		subvoice[sublistsize] = t2;
 		subpalette[sublistsize] = pal;
@@ -441,7 +441,7 @@ class Voicelistclass {
 		sublistsize++;
 	}
 
-	public function getfirst(cat:String):Dynamic /*:Int*/ {
+	public function getfirst(cat:String):Int {
 		// Return the index of the first member of this category
 		for (i in 0...listsize) {
 			if (category[i] == cat)
@@ -450,7 +450,7 @@ class Voicelistclass {
 		return 0;
 	}
 
-	public function getlast(cat:String):Dynamic /*:Int*/ {
+	public function getlast(cat:String):Int {
 		// Return the index of the last member of this category
 		var i:Int = Std.int(listsize - 1);
 		while (i >= 0) {
@@ -460,7 +460,7 @@ class Voicelistclass {
 		return 0;
 	}
 
-	public function getvoice(n:String):Dynamic /*:Int*/ {
+	public function getvoice(n:String):Int {
 		// Get the voice by name, return index
 		for (i in 0...listsize) {
 			if (name[i] == n)
@@ -469,7 +469,7 @@ class Voicelistclass {
 		return 0;
 	}
 
-	public function getnext(current:Dynamic /*:Int*/):Dynamic /*:Int*/ {
+	public function getnext(current:Int):Int {
 		// Given current instrument, get the next instrument in this category
 		for (i in (current + 1)...listsize) {
 			if (category[i] == category[current])
@@ -478,7 +478,7 @@ class Voicelistclass {
 		return getfirst(category[current]);
 	}
 
-	public function getprevious(current:Dynamic /*:Int*/):Dynamic /*:Int*/ {
+	public function getprevious(current:Int):Int {
 		// Given current instrument, get the previous instrument in this category
 		var i:Int = Std.int(current - 1);
 		while (i >= 0) {
@@ -497,9 +497,9 @@ class Voicelistclass {
 	public var subname:Array<String> = new Array<String>();
 	public var subvoice:Array<String> = new Array<String>();
 	public var subpalette:Array<Int> = new Array<Int>();
-	public var sublistsize:Dynamic /*:Int*/;
+	public var sublistsize:Int;
 
-	public var listsize:Dynamic /*:Int*/;
-	public var index:Dynamic /*:Int*/;
-	public var pagenum:Dynamic /*:Int*/;
+	public var listsize:Int;
+	public var index:Int;
+	public var pagenum:Int;
 }

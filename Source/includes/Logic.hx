@@ -4,9 +4,9 @@ import bigroom.input.KeyPoll;
 
 class Logic {
 	public static function logic(key:KeyPoll):Void {
-		var i:Dynamic /*:Int*/;
-		var j:Dynamic /*:Int*/;
-		var k:Dynamic /*:Int*/;
+		var i:Int;
+		var j:Int;
+		var k:Int;
 
 		if (Control.arrangescrolldelay > 0) {
 			Control.arrangescrolldelay--;

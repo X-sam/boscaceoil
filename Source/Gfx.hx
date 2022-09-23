@@ -33,14 +33,14 @@ class Gfx extends Sprite {
 		mStage = _stage;
 	}
 
-	public static function changeframerate(t:Dynamic /*:Int*/):Void {
+	public static function changeframerate(t:Int):Void {
 		if (t != boscaframerate) {
 			mStage.frameRate = t;
 			boscaframerate = t;
 		}
 	}
 
-	public static function changescalemode(t:Dynamic /*:Int*/):Void {
+	public static function changescalemode(t:Int):Void {
 		// Set new minimum screensize
 		if (t == 0) {
 			min_windowwidth = 768;
@@ -65,11 +65,11 @@ class Gfx extends Sprite {
 		// Control.clicklist = true; // Stops from placing a note on resize
 	}
 
-	public static function tutorialimagewidth(t:Dynamic /*:Int*/):Dynamic /*:Int*/ {
+	public static function tutorialimagewidth(t:Int):Int {
 		return images[t + 8].width;
 	}
 
-	public static function tutorialimageheight(t:Dynamic /*:Int*/):Dynamic /*:Int*/ {
+	public static function tutorialimageheight(t:Int):Int {
 		return images[t + 8].height;
 	}
 
@@ -194,12 +194,12 @@ class Gfx extends Sprite {
 		// Draw background colour for each row
 		var isdrumkit:Bool = Control.instrument[Control.musicbox[Control.currentbox].instr].type >= 1;
 		for (i in 0...notesonscreen) {
-			var instsize:Dynamic /*:Int*/ = Control.pianorollsize;
+			var instsize:Int = Control.pianorollsize;
 			if (Control.instrument[Control.musicbox[Control.currentbox].instr].type >= 1) {
 				instsize = Control.drumkit[cast Control.instrument[Control.musicbox[Control.currentbox].instr].type - 1].size;
 			}
 			if (Control.musicbox[Control.currentbox].start + i - 1 < instsize) {
-				var n:Dynamic /*:Int*/ = Control.musicbox[Control.currentbox].start + i - 1;
+				var n:Int = Control.musicbox[Control.currentbox].start + i - 1;
 				var notename:String = (n > -1) ? Control.notename[Control.pianoroll[n]] : "";
 				var sharp:Bool = isdrumkit ? (n % 2 == 0) : (lastchar(notename) == '#');
 				if (!sharp) {
@@ -341,10 +341,10 @@ class Gfx extends Sprite {
 
 		// DRAW THE NOTES HERE
 		for (j in 0...Control.musicbox[Control.currentbox].numnotes) {
-			i = Control.musicbox[Control.currentbox].notes[j].width;
+			i = Std.int(Control.musicbox[Control.currentbox].notes[j].width);
 			if (i < Control.boxcount) {
 				Control.drawnoteposition = Control.invertpianoroll[cast Control.musicbox[Control.currentbox].notes[j].x] + 1;
-				Control.drawnotelength = Control.musicbox[Control.currentbox].notes[j].y * Control.boxsize;
+				Control.drawnotelength = Std.int(Control.musicbox[Control.currentbox].notes[j].y * Control.boxsize);
 				if (Control.drawnoteposition > -1) {
 					Control.drawnoteposition -= Control.musicbox[Control.currentbox].start;
 					if (Control.drawnoteposition <= 0) {
@@ -538,8 +538,8 @@ class Gfx extends Sprite {
 		}
 	}
 
-	public static function drawmusicbox(xp:Dynamic /*:Int*/, yp:Dynamic /*:Int*/, t:Dynamic /*:Int*/, enabled:Bool = true,
-			forcezoom:Dynamic /*:Int*/ = -1):Void {
+	public static function drawmusicbox(xp:Float, yp:Float, t:Int, enabled:Bool = true,
+			forcezoom:Int = -1):Void {
 		// Draw a little music box containing our notes!
 		if (xp < screenwidth) {
 			temppal = Control.musicbox[t].palette;
@@ -560,22 +560,22 @@ class Gfx extends Sprite {
 			fillrect(xp, yp, temppatternwidth, 24, 100 + (temppal * 10));
 			fillrect(xp + 44, yp + 2, temppatternwidth - 46, 20, 101 + (temppal * 10));
 			for (mbj in 0...Control.musicbox[t].numnotes) {
-				mbi = Control.musicbox[t].notes[mbj].width;
-				Control.drawnoteposition = Control.musicbox[t].notes[mbj].x;
+				mbi = Std.int(Control.musicbox[t].notes[mbj].width);
+				Control.drawnoteposition = Std.int(Control.musicbox[t].notes[mbj].x);
 				Control.drawnotelength = Math.ceil(Control.musicbox[t].notes[mbj].y * zoomoffset);
 				if (mbi + Control.musicbox[t].notes[mbj].y > Control.boxcount) {
 					// temppatternwidth for each bar
-					Control.drawnotelength = (temppatternwidth / 2) - (21 + Std.int(mbi * zoomoffset));
-					Control.drawnotelength += ((temppatternwidth / 2) * (Control.musicbox[t].notes[mbj].y - (Control.boxcount - mbi)) / Control.boxcount);
+					Control.drawnotelength = Std.int(temppatternwidth / 2) - (21 + Std.int(mbi * zoomoffset));
+					Control.drawnotelength += Std.int((temppatternwidth / 2) * (Control.musicbox[t].notes[mbj].y - (Control.boxcount - mbi)) / Control.boxcount);
 				}
 				if (Control.drawnoteposition > -1) {
 					Control.drawnoteposition -= Control.musicbox[t].bottomnote;
 					if (Control.musicbox[t].notespan > 10) {
-						Control.drawnoteposition = ((Control.drawnoteposition * 8) / Control.musicbox[t].notespan) + 2;
+						Control.drawnoteposition = Std.int((Control.drawnoteposition * 8) / Control.musicbox[t].notespan) + 2;
 					} else {
 						Control.drawnoteposition++;
 						if (Control.musicbox[t].notespan < 6) {
-							Control.drawnoteposition += 6 - Control.musicbox[t].notespan;
+							Control.drawnoteposition += 6 - Std.int(Control.musicbox[t].notespan);
 						}
 					}
 					if (Control.drawnoteposition >= 1 && Control.drawnoteposition < 11) {
@@ -645,7 +645,7 @@ class Gfx extends Sprite {
 
 	public static function drawarrangementcursor():Void {
 		// Position bar
-		i = ((Control.looptime * patternwidth) / Control.boxcount) + ((Control.arrange.currentbar - Control.arrange.viewstart) * patternwidth);
+		i = Std.int(((Control.looptime * patternwidth) / Control.boxcount) + ((Control.arrange.currentbar - Control.arrange.viewstart) * patternwidth));
 		if (i < patternmanagerx) {
 			fillrect(i, linesize, 4, pianorollposition, 10);
 			fillrect(i + 4, linesize, 4, pianorollposition, 11);
@@ -959,13 +959,13 @@ class Gfx extends Sprite {
 		screen.y = 0;
 	}
 
-	public static function setzoomlevel(t:Dynamic /*:Int*/):Void {
+	public static function setzoomlevel(t:Int):Void {
 		zoom = t;
 		patternwidth = 44 + (zoom * 16);
 	}
 
 	#if (CONFIG == "desktop")
-	public static function changewindowsize(w:Dynamic /*:Int*/, h:Dynamic /*:Int*/):Void {
+	public static function changewindowsize(w:Int, h:Int):Void {
 		// if (w < 768) w = 768;
 		// if (h < 480) h = 480;
 		/*windowboundsx = mStage.nativeWindow.bounds.width - mStage.stageWidth; TODO:FIXME: add -Sam!
@@ -980,15 +980,15 @@ class Gfx extends Sprite {
 		}
 
 		if (Gfx.scalemode == 1) {
-			screenwidth = w / 1.5;
-			screenheight = h / 1.5;
+			screenwidth = Std.int(w / 1.5);
+			screenheight = Std.int(h / 1.5);
 		} else {
 			screenwidth = w;
 			screenheight = h;
 		}
 
-		screenwidthmid = screenwidth / 2;
-		screenheightmid = screenheight / 2;
+		screenwidthmid = Std.int(screenwidth / 2);
+		screenheightmid = Std.int(screenheight / 2);
 		screenviewwidth = screenwidth;
 		screenviewheight = screenheight;
 	}
@@ -996,7 +996,7 @@ class Gfx extends Sprite {
 
 	#if (CONFIG == "web")
 	{
-		public static function changewindowsize(w:Dynamic /*:Int*/, h:Dynamic /*:Int*/):Void {
+		public static function changewindowsize(w:Int, h:Int):Void {
 			windowwidth = w;
 			windowheight = h;
 
@@ -1015,14 +1015,14 @@ class Gfx extends Sprite {
 		}
 	}
 	#end
-	public static function settrect(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/):Void {
+	public static function settrect(x:Float, y:Float, w:Float, h:Float):Void {
 		trect.x = x;
 		trect.y = y;
 		trect.width = w;
 		trect.height = h;
 	}
 
-	public static function settpoint(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/):Void {
+	public static function settpoint(x:Float, y:Float):Void {
 		tpoInt.x = x;
 		tpoInt.y = y;
 	}
@@ -1033,7 +1033,7 @@ class Gfx extends Sprite {
 		images.push(t);
 	}
 
-	public static function drawimage(t:Dynamic /*:Int*/, xp:Dynamic /*:Int*/, yp:Dynamic /*:Int*/):Void {
+	public static function drawimage(t:Int, xp:Float, yp:Float):Void {
 		settpoint(xp, yp);
 		settrect(0, 0, images[t].width, images[t].height);
 		backbuffer.copyPixels(images[t], trect, tpoInt);
@@ -1049,7 +1049,7 @@ class Gfx extends Sprite {
 	}
 
 	// Draw Primatives
-	public static function drawline(x1:Dynamic /*:Int*/, y1:Dynamic /*:Int*/, x2:Dynamic /*:Int*/, y2:Dynamic /*:Int*/, col:Dynamic /*:Int*/):Void {
+	public static function drawline(x1:Int, y1:Int, x2:Int, y2:Int, col:Int):Void {
 		if (x1 > x2) {
 			drawline(x2, y1, x1, y2, col);
 		} else if (y1 > y2) {
@@ -1065,8 +1065,8 @@ class Gfx extends Sprite {
 		}
 	}
 
-	public static function drawpartialbox(x1:Dynamic /*:Int*/, y1:Dynamic /*:Int*/, w1:Dynamic /*:Int*/, h1:Dynamic /*:Int*/, col:Dynamic /*:Int*/,
-			cutoff:Dynamic /*:Int*/):Void {
+	public static function drawpartialbox(x1:Int, y1:Int, w1:Int, h1:Int, col:Int,
+			cutoff:Int):Void {
 		if (y1 > cutoff) {
 			settrect(x1, y1, w1, 2);
 			backbuffer.fillRect(trect, RGB(pal[col].r, pal[col].g, pal[col].b));
@@ -1091,7 +1091,7 @@ class Gfx extends Sprite {
 		}
 	}
 
-	public static function drawbox(x1:Dynamic /*:Int*/, y1:Dynamic /*:Int*/, w1:Dynamic /*:Int*/, h1:Dynamic /*:Int*/, col:Dynamic /*:Int*/):Void {
+	public static function drawbox(x1:Float, y1:Float, w1:Float, h1:Float, col:Int):Void {
 		settrect(x1, y1, w1, 2);
 		backbuffer.fillRect(trect, RGB(pal[col].r, pal[col].g, pal[col].b));
 		settrect(x1, y1 + h1 - 2, w1, 2);
@@ -1106,17 +1106,17 @@ class Gfx extends Sprite {
 		fillrect(0, 0, 384, 240, 1);
 	}
 
-	public static function fillrect(x1:Dynamic /*:Int*/, y1:Dynamic /*:Int*/, w1:Dynamic /*:Int*/, h1:Dynamic /*:Int*/, t:Dynamic /*:Int*/):Void {
+	public static function fillrect(x1:Float, y1:Float, w1:Float, h1:Float, t:Int):Void {
 		settrect(x1, y1, w1, h1);
 		backbuffer.fillRect(trect, RGB(pal[t].r, pal[t].g, pal[t].b));
 	}
 
-	public static function drawbuffericon(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:Dynamic /*:Int*/):Void {
+	public static function drawbuffericon(x:Float, y:Float, t:Int):Void {
 		settpoint(x, y);
 		buffer.copyPixels(icons[t], icons_rect, tpoInt);
 	}
 
-	public static function drawicon(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:Dynamic /*:Int*/):Void {
+	public static function drawicon(x:Float, y:Float, t:Int):Void {
 		settpoint(x, y);
 		backbuffer.copyPixels(icons[t], icons_rect, tpoInt);
 	}
@@ -1154,7 +1154,7 @@ class Gfx extends Sprite {
 		tf_5.antiAliasType = AntiAliasType.NORMAL;
 	}
 
-	public static function rprint(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, col:Dynamic /*:Int*/, shadow:Bool = false):Void {
+	public static function rprint(x:Float, y:Float, t:String, col:Int, shadow:Bool = false):Void {
 		x = x - len(t);
 		print(x, y, t, col, false, shadow);
 	}
@@ -1162,10 +1162,10 @@ class Gfx extends Sprite {
 	public static var cachedtextindex:Dictionary<String, Null<Int>> = new Dictionary();
 	public static var cachedtext:Array<BitmapData> = new Array<BitmapData>();
 	public static var cachedrect:Array<Rectangle> = new Array<Rectangle>();
-	public static var cacheindex:Dynamic /*:Int*/;
+	public static var cacheindex:Int;
 	public static var cachelabel:String;
 
-	public static function print(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, col:Dynamic /*:Int*/, cen:Bool = false, shadow:Bool = false):Void {
+	public static function print(x:Float, y:Float, t:String, col:Int, cen:Bool = false, shadow:Bool = false):Void {
 		if (shadow) {
 			cachelabel = t + "_" + Std.string(col) + "_shadow";
 		} else {
@@ -1186,7 +1186,7 @@ class Gfx extends Sprite {
 		backbuffer.copyPixels(cachedtext[cacheindex], cachedrect[cacheindex], tpoInt);
 	}
 
-	public static function printoncache(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, col:Dynamic /*:Int*/, cen:Bool = false, shadow:Bool = false):Void {
+	public static function printoncache(x:Float, y:Float, t:String, col:Int, cen:Bool = false, shadow:Bool = false):Void {
 		y -= 3;
 
 		tf_1.textColor = RGB(pal[col].r, pal[col].g, pal[col].b);
@@ -1209,7 +1209,7 @@ class Gfx extends Sprite {
 		shapematrix.translate(-x, -y);
 	}
 
-	public static function normalprint(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, col:Dynamic /*:Int*/, cen:Bool = false, shadow:Bool = false):Void {
+	public static function normalprint(x:Float, y:Float, t:String, col:Int, cen:Bool = false, shadow:Bool = false):Void {
 		y -= 3;
 
 		tf_1.textColor = RGB(pal[col].r, pal[col].g, pal[col].b);
@@ -1232,58 +1232,58 @@ class Gfx extends Sprite {
 		shapematrix.translate(-x, -y);
 	}
 
-	public static function len(t:String, sz:Dynamic /*:Int*/ = 1):Dynamic /*:Int*/ {
+	public static function len(t:String, sz:Int = 1):Int {
 		if (sz == 1) {
 			tf_1.text = t;
-			return tf_1.textWidth;
+			return Std.int(tf_1.textWidth);
 		} else if (sz == 2) {
 			tf_2.text = t;
-			return tf_2.textWidth;
+			return Std.int(tf_2.textWidth);
 		} else if (sz == 3) {
 			tf_3.text = t;
-			return tf_3.textWidth;
+			return Std.int(tf_3.textWidth);
 		} else if (sz == 4) {
 			tf_4.text = t;
-			return tf_4.textWidth;
+			return Std.int(tf_4.textWidth);
 		} else if (sz == 5) {
 			tf_5.text = t;
-			return tf_5.textWidth;
+			return Std.int(tf_5.textWidth);
 		}
 
 		tf_1.text = t;
-		return tf_1.textWidth;
+		return Std.int(tf_1.textWidth);
 	}
 
-	public static function hig(t:String, sz:Dynamic /*:Int*/ = 1):Dynamic /*:Int*/ {
+	public static function hig(t:String, sz:Int = 1):Int {
 		if (sz == 1) {
 			tf_1.text = t;
-			return tf_1.textHeight;
+			return Std.int(tf_1.textHeight);
 		} else if (sz == 2) {
 			tf_2.text = t;
-			return tf_2.textHeight;
+			return Std.int(tf_2.textHeight);
 		} else if (sz == 3) {
 			tf_3.text = t;
-			return tf_3.textHeight;
+			return Std.int(tf_3.textHeight);
 		} else if (sz == 4) {
 			tf_4.text = t;
-			return tf_4.textHeight;
+			return Std.int(tf_4.textHeight);
 		} else if (sz == 5) {
 			tf_5.text = t;
-			return tf_5.textHeight;
+			return Std.int(tf_5.textHeight);
 		}
 
 		tf_1.text = t;
-		return tf_1.textHeight;
+		return Std.int(tf_1.textHeight);
 	}
 
-	public static function rbigprint(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, r:Dynamic /*:Int*/, g:Dynamic /*:Int*/, b:Dynamic /*:Int*/,
-			cen:Bool = false, sc:Dynamic /*:Float*/ = 2):Void {
+	public static function rbigprint(x:Int, y:Int, t:String, r:Int, g:Int, b:Int,
+			cen:Bool = false, sc:Int = 2):Void {
 		x = x - len(t, sc);
 		bigprint(x, y, t, r, g, b, cen, sc);
 	}
 
-	public static function bigprint(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, t:String, r:Dynamic /*:Int*/, g:Dynamic /*:Int*/, b:Dynamic /*:Int*/,
-			cen:Bool = false, sc:Dynamic /*:Float*/ = 2):Void {
+	public static function bigprint(x:Float, y:Float, t:String, r:Int, g:Int, b:Int,
+			cen:Bool = false, sc:Float = 2):Void {
 		if (r < 0)
 			r = 0;
 		if (g < 0)
@@ -1341,7 +1341,7 @@ class Gfx extends Sprite {
 		}
 	}
 
-	public static function RGB(red:Dynamic /*:Float*/, green:Dynamic /*:Float*/, blue:Dynamic /*:Float*/):Dynamic /*:Float*/ {
+	public static function RGB(red:Int, green:Int, blue:Int):lime.math.ARGB {
 		return (blue | (green << 8) | (red << 16));
 	}
 
@@ -1370,48 +1370,48 @@ class Gfx extends Sprite {
 	public static var trect:Rectangle;
 	public static var tpoInt:Point;
 	public static var tbuffer:BitmapData;
-	public static var i:Dynamic /*:Int*/;
-	public static var j:Dynamic /*:Int*/;
-	public static var k:Dynamic /*:Int*/;
-	public static var l:Dynamic /*:Int*/;
-	public static var mbi:Dynamic /*:Int*/;
-	public static var mbj:Dynamic /*:Int*/;
+	public static var i:Int;
+	public static var j:Int;
+	public static var k:Int;
+	public static var l:Int;
+	public static var mbi:Int;
+	public static var mbj:Int;
 	public static var tempstring:String;
 
-	public static var screenwidth:Dynamic /*:Int*/;
-	public static var screenheight:Dynamic /*:Int*/;
-	public static var screenwidthmid:Dynamic /*:Int*/;
-	public static var screenheightmid:Dynamic /*:Int*/;
-	public static var screenviewwidth:Dynamic /*:Int*/;
-	public static var screenviewheight:Dynamic /*:Int*/;
-	public static var linesize:Dynamic /*:Int*/;
-	public static var patternheight:Dynamic /*:Int*/;
-	public static var patternwidth:Dynamic /*:Int*/;
-	public static var temppatternwidth:Dynamic /*:Int*/;
-	public static var patternmanagerx:Dynamic /*:Int*/;
-	public static var linespacing:Dynamic /*:Int*/;
-	public static var patterneditorheight:Dynamic /*:Int*/;
-	public static var buttonheight:Dynamic /*:Int*/;
-	public static var pianorollposition:Dynamic /*:Int*/;
-	public static var notesonscreen:Dynamic /*:Int*/;
+	public static var screenwidth:Int;
+	public static var screenheight:Int;
+	public static var screenwidthmid:Int;
+	public static var screenheightmid:Int;
+	public static var screenviewwidth:Int;
+	public static var screenviewheight:Int;
+	public static var linesize:Int;
+	public static var patternheight:Int;
+	public static var patternwidth:Int;
+	public static var temppatternwidth:Int;
+	public static var patternmanagerx:Int;
+	public static var linespacing:Int;
+	public static var patterneditorheight:Int;
+	public static var buttonheight:Int;
+	public static var pianorollposition:Int;
+	public static var notesonscreen:Int;
 
-	public static var temp:Dynamic /*:Int*/;
-	public static var temp2:Dynamic /*:Int*/;
-	public static var temp3:Dynamic /*:Int*/;
+	public static var temp:Int;
+	public static var temp2:Int;
+	public static var temp3:Int;
 	public static var alphamult:UInt;
 	public static var stemp:String;
 	public static var buffer:BitmapData;
-	public static var temppal:Dynamic /*:Int*/;
+	public static var temppal:Int;
 
-	public static var zoom:Dynamic /*:Int*/;
-	public static var zoomoffset:Dynamic /*:Float*/;
+	public static var zoom:Int;
+	public static var zoomoffset:Float;
 
 	public static var tempicon:BitmapData;
 	// Actual backgrounds
 	public static var drawto:BitmapData;
 	public static var backbuffer:BitmapData;
 	public static var backbuffercache:BitmapData;
-	public static var updatebackground:Dynamic /*:Int*/;
+	public static var updatebackground:Int;
 	public static var screenbuffer:BitmapData;
 	public static var screen:Bitmap;
 	// Tempshape
@@ -1425,20 +1425,20 @@ class Gfx extends Sprite {
 	public static var tf_5:TextField = new TextField();
 	public static var fontsize:Array<Int> = new Array<Int>();
 	public static var pal:Array<Paletteclass> = new Array<Paletteclass>();
-	public static var buttonpress:Dynamic /*:Int*/;
+	public static var buttonpress:Int;
 
 	public static var mStage:Stage;
 
-	public static var windowwidth:Dynamic /*:Int*/;
-	public static var windowheight:Dynamic /*:Int*/;
-	public static var min_windowwidth:Dynamic /*:Int*/;
-	public static var min_windowheight:Dynamic /*:Int*/;
-	public static var windowboundsx:Dynamic /*:Int*/;
-	public static var windowboundsy:Dynamic /*:Int*/;
-	public static var scalemode:Dynamic /*:Int*/;
+	public static var windowwidth:Int;
+	public static var windowheight:Int;
+	public static var min_windowwidth:Int;
+	public static var min_windowheight:Int;
+	public static var windowboundsx:Int;
+	public static var windowboundsy:Int;
+	public static var scalemode:Int;
 
-	public static var boscaframerate:Dynamic /*:Int*/ = -1;
+	public static var boscaframerate:Int = -1;
 
-	public static var arrangementscrollleft:Dynamic /*:Int*/ = 0;
-	public static var arrangementscrollright:Dynamic /*:Int*/ = 0;
+	public static var arrangementscrollleft:Int = 0;
+	public static var arrangementscrollright:Int = 0;
 }

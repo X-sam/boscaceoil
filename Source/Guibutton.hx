@@ -11,7 +11,7 @@ class Guibutton {
 		mouseover = false;
 	}
 
-	public function init(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/, contents:String, act:String = "",
+	public function init(x:Float, y:Float, w:Float, h:Float, contents:String, act:String = "",
 			sty:String = "normal"):Void {
 		position.setTo(x, y, w, h);
 		text = contents;
@@ -43,6 +43,6 @@ class Guibutton {
 	public var moveable:Bool;
 	public var onwindow:Bool;
 
-	public var pressed:Dynamic /*:Int*/;
-	public var textoffset:Dynamic /*:Int*/;
+	public var pressed:Int;
+	public var textoffset:Int;
 }

@@ -4,9 +4,9 @@ import bigroom.input.KeyPoll;
 
 class Render {
 	public static function render(key:KeyPoll):Void {
-		var i:Dynamic /*:Int*/;
-		var j:Dynamic /*:Int*/;
-		var k:Dynamic /*:Int*/;
+		var i:Int;
+		var j:Int;
+		var k:Int;
 
 		if (cast Gfx.updatebackground > 0) {
 			Gfx.changeframerate(30);
@@ -51,7 +51,7 @@ class Render {
 				Gfx.fillrect(0, Gfx.pianorollposition + Gfx.linesize, Gfx.screenwidth, Gfx.screenheight - (Gfx.pianorollposition + Gfx.linesize), 14);
 				if (Control.arrange.currentbar % 2 == 0) {
 					Guiclass.tx = Std.int(Gfx.screenwidth / 64) + 1;
-					for (i in -1...Guiclass.tx) {
+					for (i in -1...Std.int(Guiclass.tx)) {
 						Gfx.fillrect((i * 64)
 							+ Help.slowsine, Gfx.pianorollposition
 							+ Gfx.linesize, 32,
@@ -60,7 +60,7 @@ class Render {
 					}
 				} else {
 					Guiclass.tx = Std.int(Gfx.screenheight - (Gfx.pianorollposition + Gfx.linesize) / 64) + 1;
-					for (i in 0...Guiclass.tx) {
+					for (i in 0...Std.int(Guiclass.tx)) {
 						Gfx.fillrect(0, Gfx.pianorollposition + Gfx.linesize + (i * 64) + Help.slowsine, Gfx.screenwidth, 32, 1);
 					}
 					if (Help.slowsine >= 32) {
@@ -151,7 +151,7 @@ class Render {
 		if (Control.messagedelay > 0) {
 			i = Control.messagedelay > 10 ? 10 : Control.messagedelay;
 			Gfx.fillrect(0, Gfx.screenheight - (i * 2), Gfx.screenwidth, 20, 16);
-			Gfx.print(Std.int(Gfx.screenwidthmid - (Gfx.len(Control.message) / 2)), Gfx.screenheight - (i * 2), Control.message, 0, false, true);
+			Gfx.print(Gfx.screenwidthmid - (Gfx.len(Control.message) / 2), Gfx.screenheight - (i * 2), Control.message, 0, false, true);
 		}
 
 		// Draw pop up lists over all that
@@ -160,7 +160,7 @@ class Render {
 		// Draw mouse dragging stuff over everything
 		if (Control.dragaction == 1 || Control.dragaction == 2) {
 			if (Math.abs(Control.mx - Control.dragx) > 4 || Math.abs(Control.my - Control.dragy) > 4) {
-				Gfx.drawmusicbox(Std.int(Control.mx), Std.int(Control.my), Control.dragpattern);
+				Gfx.drawmusicbox(Control.mx, Control.my, Control.dragpattern);
 			}
 		}
 

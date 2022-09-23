@@ -6,9 +6,9 @@ import openfl.ui.Keyboard;
 
 class Input {
 	public static function input(key:KeyPoll, main:Main):Void {
-		var i:Dynamic /*:Int*/;
-		var j:Dynamic /*:Int*/;
-		var k:Dynamic /*:Int*/;
+		var i:Int;
+		var j:Int;
+		var k:Int;
 
 		generickeypoll(key, main);
 		if (key.click || key.press || key.rightpress || key.rightclick || key.middlepress || key.middleclick || key.mousewheel != 0) {
@@ -57,8 +57,8 @@ class Input {
 					&& Control.mx < Control.secondlist.x + Control.secondlist.w
 					&& Control.my > Control.secondlist.y
 					&& Control.my < Control.secondlist.y + Control.secondlist.h) {
-					Control.secondlist.selection = Control.my - Control.secondlist.y;
-					Control.secondlist.selection = (Control.secondlist.selection - (Control.secondlist.selection % Gfx.linesize)) / Gfx.linesize;
+					Control.secondlist.selection = Std.int(Control.my - Control.secondlist.y);
+					Control.secondlist.selection = Std.int((Control.secondlist.selection - (Control.secondlist.selection % Gfx.linesize)) / Gfx.linesize);
 				}
 			}
 			if (Control.list.active) {
@@ -66,8 +66,8 @@ class Input {
 					&& Control.mx < Control.list.x + Control.list.w
 					&& Control.my > Control.list.y
 					&& Control.my < Control.list.y + Control.list.h) {
-					Control.list.selection = Control.my - Control.list.y;
-					Control.list.selection = (Control.list.selection - (Control.list.selection % Gfx.linesize)) / Gfx.linesize;
+					Control.list.selection = Std.int(Control.my - Control.list.y);
+					Control.list.selection = Std.int((Control.list.selection - (Control.list.selection % Gfx.linesize)) / Gfx.linesize);
 				}
 			}
 		} else {
@@ -75,11 +75,11 @@ class Input {
 				if (Control.mx > 40 && Control.mx < Gfx.screenwidth - 24) {
 					if (Control.my > Gfx.pianorollposition + Gfx.linesize
 						&& Control.my < Gfx.pianorollposition + (Gfx.linesize * (Gfx.patterneditorheight + 1))) {
-						Control.cursorx = (Control.mx - 40);
-						Control.cursorx = (Control.cursorx - (Control.cursorx % Control.boxsize)) / Control.boxsize;
+						Control.cursorx = Std.int(Control.mx - 40);
+						Control.cursorx = Std.int((Control.cursorx - (Control.cursorx % Control.boxsize)) / Control.boxsize);
 
-						Control.cursory = (Gfx.screenheight - Gfx.linesize) - Control.my;
-						Control.cursory = 1 + ((Control.cursory - (Control.cursory % Gfx.linesize)) / Gfx.linesize);
+						Control.cursory = Std.int((Gfx.screenheight - Gfx.linesize) - Control.my);
+						Control.cursory = 1 + Std.int((Control.cursory - (Control.cursory % Gfx.linesize)) / Gfx.linesize);
 						if (Control.cursorx >= Control.boxcount)
 							Control.cursorx = Control.boxcount - 1;
 						if (Control.my >= Gfx.screenheight - (Gfx.linesize))
@@ -88,8 +88,8 @@ class Input {
 				} else if (Control.mx <= 40) {
 					if (Control.my > Gfx.pianorollposition + Gfx.linesize
 						&& Control.my < Gfx.pianorollposition + (Gfx.linesize * (Gfx.patterneditorheight + 1))) {
-						Control.notey = (Gfx.screenheight - Gfx.linesize) - Control.my;
-						Control.notey = 1 + ((Control.notey - (Control.notey % Gfx.linesize)) / Gfx.linesize);
+						Control.notey = Std.int((Gfx.screenheight - Gfx.linesize) - Control.my);
+						Control.notey = 1 + Std.int((Control.notey - (Control.notey % Gfx.linesize)) / Gfx.linesize);
 						if (Control.my >= Gfx.screenheight - (Gfx.linesize))
 							Control.notey = -1;
 					}
@@ -100,27 +100,27 @@ class Input {
 						// Priority: Timeline, Pattern manager, arrangements
 						if (Control.mx > Gfx.patternmanagerx) {
 							// Pattern Manager
-							Control.patterncury = Control.my - Gfx.linesize - 4;
-							Control.patterncury = (Control.patterncury - (Control.patterncury % Gfx.patternheight)) / Gfx.patternheight;
+							Control.patterncury = Std.int(Control.my) - Gfx.linesize - 4;
+							Control.patterncury = Std.int((Control.patterncury - (Control.patterncury % Gfx.patternheight)) / Gfx.patternheight);
 							if (Control.patterncury > 6)
 								Control.patterncury = -1;
 						} else if (Control.my >= Gfx.pianorollposition + 8 || Control.dragaction == 3) {
 							// Timeline
-							Control.timelinecurx = Control.mx;
-							Control.timelinecurx = (Control.timelinecurx - (Control.timelinecurx % Gfx.patternwidth)) / Gfx.patternwidth;
+							Control.timelinecurx = Std.int(Control.mx);
+							Control.timelinecurx = Std.int((Control.timelinecurx - (Control.timelinecurx % Gfx.patternwidth)) / Gfx.patternwidth);
 						} else {
 							// Arrangements
-							Control.arrangecurx = Control.mx;
-							Control.arrangecurx = (Control.arrangecurx - (Control.arrangecurx % Gfx.patternwidth)) / Gfx.patternwidth;
-							Control.arrangecury = (Control.my - Gfx.linesize);
-							Control.arrangecury = (Control.arrangecury - (Control.arrangecury % Gfx.patternheight)) / Gfx.patternheight;
+							Control.arrangecurx = Std.int(Control.mx);
+							Control.arrangecurx = Std.int((Control.arrangecurx - (Control.arrangecurx % Gfx.patternwidth)) / Gfx.patternwidth);
+							Control.arrangecury = Std.int((Control.my - Gfx.linesize));
+							Control.arrangecury = Std.int((Control.arrangecury - (Control.arrangecury % Gfx.patternheight)) / Gfx.patternheight);
 							if (Control.arrangecury > 7)
 								Control.arrangecury = 7;
 						}
 					} else if (Control.currenttab == Control.MENUTAB_INSTRUMENTS) {
 						if (Control.mx < 280) {
-							Control.instrumentcury = Control.my - Gfx.linesize;
-							Control.instrumentcury = (Control.instrumentcury - (Control.instrumentcury % Gfx.patternheight)) / Gfx.patternheight;
+							Control.instrumentcury = Std.int(Control.my - Gfx.linesize);
+							Control.instrumentcury = Std.int((Control.instrumentcury - (Control.instrumentcury % Gfx.patternheight)) / Gfx.patternheight);
 							if (Control.instrumentcury > 6)
 								Control.instrumentcury = -1;
 						}
@@ -387,8 +387,8 @@ class Input {
 									Control.changemusicbox(j);
 									Control.dragaction = 2;
 									Control.dragpattern = j;
-									Control.dragx = Control.mx;
-									Control.dragy = Control.my;
+									Control.dragx = Std.int(Control.mx);
+									Control.dragy = Std.int(Control.my);
 								}
 							}
 						}
@@ -403,8 +403,8 @@ class Input {
 											Control.changemusicbox(j);
 											Control.dragaction = 1;
 											Control.dragpattern = j;
-											Control.dragx = Control.mx;
-											Control.dragy = Control.my;
+											Control.dragx = Std.int(Control.mx);
+											Control.dragy = Std.int(Control.my);
 										}
 									} else {
 										// Clicked the Control panel
@@ -503,8 +503,8 @@ class Input {
 				} else if (Control.currenttab == Control.MENUTAB_INSTRUMENTS) {
 					if (Control.my > Gfx.linesize && Control.my < Gfx.pianorollposition + 20) {
 						if (Control.mx >= 280 && Control.my > 70 && Control.mx < Gfx.screenwidth - 50) {
-							i = Control.mx - 280;
-							j = Control.my - 80;
+							i = Std.int(Control.mx) - 280;
+							j = Std.int(Control.my) - 80;
 							if (i < 0)
 								i = 0;
 							if (i > Gfx.screenwidth - 368)
@@ -531,7 +531,7 @@ class Input {
 										Control.instrument[Control.currentinstrument].resonance);
 								}
 							} else {
-								Control.instrument[Control.currentinstrument].setfilter((i * 128) / (Gfx.screenwidth - 368), (j * 9) / 90);
+								Control.instrument[Control.currentinstrument].setfilter(Std.int((i * 128) / (Gfx.screenwidth - 368)),Std.int((j * 9) / 90));
 								Control.instrument[Control.currentinstrument].updatefilter();
 								if (cast(Control.instrument[Control.currentinstrument].type, Int) > 0) {
 									Control.drumkit[cast(Control.instrument[Control.currentinstrument].type, Int)
@@ -540,7 +540,7 @@ class Input {
 								}
 							}
 						} else if (Control.my > 70 && Control.mx >= Gfx.screenwidth - 50) {
-							j = Control.my - 90;
+							j = Std.int(Control.my) - 90;
 							if (j < 0)
 								j = 0;
 							if (j > 90)
@@ -556,15 +556,15 @@ class Input {
 							}
 							if (k == 1) {
 								Control.musicbox[Control.currentbox].volumegraph[cast(Control.looptime % Control.boxcount)] = cast((j * 256) / 90);
-								Control.instrument[Control.currentinstrument].changevolumeto((j * 256) / 90);
+								Control.instrument[Control.currentinstrument].changevolumeto(Std.int((j * 256) / 90));
 								if (cast(Control.instrument[Control.currentinstrument].type, Int) > 0) {
-									Control.drumkit[cast(Control.instrument[Control.currentinstrument].type, Int) - 1].updatevolume((j * 256) / 90);
+									Control.drumkit[cast(Control.instrument[Control.currentinstrument].type, Int) - 1].updatevolume(Std.int((j * 256) / 90));
 								}
 							} else {
-								Control.instrument[Control.currentinstrument].setvolume((j * 256) / 90);
+								Control.instrument[Control.currentinstrument].setvolume(Std.int((j * 256) / 90));
 								Control.instrument[Control.currentinstrument].updatefilter();
 								if (cast(Control.instrument[Control.currentinstrument].type, Int) > 0) {
-									Control.drumkit[cast(Control.instrument[Control.currentinstrument].type, Int) - 1].updatevolume((j * 256) / 90);
+									Control.drumkit[cast(Control.instrument[Control.currentinstrument].type, Int) - 1].updatevolume(Std.int((j * 256) / 90));
 								}
 							}
 						}
@@ -633,8 +633,8 @@ class Input {
 									Control.patternmanagerview = 0;
 								Control.dragaction = 1;
 								Control.dragpattern = Control.numboxes - 1;
-								Control.dragx = Control.mx;
-								Control.dragy = Control.my;
+								Control.dragx = Std.int(Control.mx);
+								Control.dragy = Std.int(Control.my);
 							}
 						}
 					} else if (Control.currenttab == Control.MENUTAB_INSTRUMENTS) {

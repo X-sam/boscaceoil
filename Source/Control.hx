@@ -27,64 +27,64 @@ import lime.media.AudioManager;
 #end
 
 class Control extends Sprite {
-	public static inline var SCALE_NORMAL:Dynamic /*:Int*/ = 0;
-	public static inline var SCALE_MAJOR:Dynamic /*:Int*/ = 1;
-	public static inline var SCALE_MINOR:Dynamic /*:Int*/ = 2;
-	public static inline var SCALE_BLUES:Dynamic /*:Int*/ = 3;
-	public static inline var SCALE_HARMONIC_MINOR:Dynamic /*:Int*/ = 4;
-	public static inline var SCALE_PENTATONIC_MAJOR:Dynamic /*:Int*/ = 5;
-	public static inline var SCALE_PENTATONIC_MINOR:Dynamic /*:Int*/ = 6;
-	public static inline var SCALE_PENTATONIC_BLUES:Dynamic /*:Int*/ = 7;
-	public static inline var SCALE_PENTATONIC_NEUTRAL:Dynamic /*:Int*/ = 8;
-	public static inline var SCALE_ROMANIAN_FOLK:Dynamic /*:Int*/ = 9;
-	public static inline var SCALE_SPANISH_GYPSY:Dynamic /*:Int*/ = 10;
-	public static inline var SCALE_ARABIC_MAGAM:Dynamic /*:Int*/ = 11;
-	public static inline var SCALE_CHINESE:Dynamic /*:Int*/ = 12;
-	public static inline var SCALE_HUNGARIAN:Dynamic /*:Int*/ = 13;
-	public static inline var CHORD_MAJOR:Dynamic /*:Int*/ = 14;
-	public static inline var CHORD_MINOR:Dynamic /*:Int*/ = 15;
-	public static inline var CHORD_5TH:Dynamic /*:Int*/ = 16;
-	public static inline var CHORD_DOM_7TH:Dynamic /*:Int*/ = 17;
-	public static inline var CHORD_MAJOR_7TH:Dynamic /*:Int*/ = 18;
-	public static inline var CHORD_MINOR_7TH:Dynamic /*:Int*/ = 19;
-	public static inline var CHORD_MINOR_MAJOR_7TH:Dynamic /*:Int*/ = 20;
-	public static inline var CHORD_SUS4:Dynamic /*:Int*/ = 21;
-	public static inline var CHORD_SUS2:Dynamic /*:Int*/ = 22;
+	public static inline var SCALE_NORMAL:Int = 0;
+	public static inline var SCALE_MAJOR:Int = 1;
+	public static inline var SCALE_MINOR:Int = 2;
+	public static inline var SCALE_BLUES:Int = 3;
+	public static inline var SCALE_HARMONIC_MINOR:Int = 4;
+	public static inline var SCALE_PENTATONIC_MAJOR:Int = 5;
+	public static inline var SCALE_PENTATONIC_MINOR:Int = 6;
+	public static inline var SCALE_PENTATONIC_BLUES:Int = 7;
+	public static inline var SCALE_PENTATONIC_NEUTRAL:Int = 8;
+	public static inline var SCALE_ROMANIAN_FOLK:Int = 9;
+	public static inline var SCALE_SPANISH_GYPSY:Int = 10;
+	public static inline var SCALE_ARABIC_MAGAM:Int = 11;
+	public static inline var SCALE_CHINESE:Int = 12;
+	public static inline var SCALE_HUNGARIAN:Int = 13;
+	public static inline var CHORD_MAJOR:Int = 14;
+	public static inline var CHORD_MINOR:Int = 15;
+	public static inline var CHORD_5TH:Int = 16;
+	public static inline var CHORD_DOM_7TH:Int = 17;
+	public static inline var CHORD_MAJOR_7TH:Int = 18;
+	public static inline var CHORD_MINOR_7TH:Int = 19;
+	public static inline var CHORD_MINOR_MAJOR_7TH:Int = 20;
+	public static inline var CHORD_SUS4:Int = 21;
+	public static inline var CHORD_SUS2:Int = 22;
 
-	public static inline var LIST_KEY:Dynamic /*:Int*/ = 0;
-	public static inline var LIST_SCALE:Dynamic /*:Int*/ = 1;
-	public static inline var LIST_INSTRUMENT:Dynamic /*:Int*/ = 2;
-	public static inline var LIST_CATEGORY:Dynamic /*:Int*/ = 3;
-	public static inline var LIST_SELECTINSTRUMENT:Dynamic /*:Int*/ = 4;
-	public static inline var LIST_BUFFERSIZE:Dynamic /*:Int*/ = 5;
-	public static inline var LIST_MOREEXPORTS:Dynamic /*:Int*/ = 6;
-	public static inline var LIST_EFFECTS:Dynamic /*:Int*/ = 7;
-	public static inline var LIST_EXPORTS:Dynamic /*:Int*/ = 8;
-	public static inline var LIST_MIDIINSTRUMENT:Dynamic /*:Int*/ = 9;
-	public static inline var LIST_MIDI_0_PIANO:Dynamic /*:Int*/ = 10;
-	public static inline var LIST_MIDI_1_BELLS:Dynamic /*:Int*/ = 11;
-	public static inline var LIST_MIDI_2_ORGAN:Dynamic /*:Int*/ = 12;
-	public static inline var LIST_MIDI_3_GUITAR:Dynamic /*:Int*/ = 13;
-	public static inline var LIST_MIDI_4_BASS:Dynamic /*:Int*/ = 14;
-	public static inline var LIST_MIDI_5_STRINGS:Dynamic /*:Int*/ = 15;
-	public static inline var LIST_MIDI_6_ENSEMBLE:Dynamic /*:Int*/ = 16;
-	public static inline var LIST_MIDI_7_BRASS:Dynamic /*:Int*/ = 17;
-	public static inline var LIST_MIDI_8_REED:Dynamic /*:Int*/ = 18;
-	public static inline var LIST_MIDI_9_PIPE:Dynamic /*:Int*/ = 19;
-	public static inline var LIST_MIDI_10_SYNTHLEAD:Dynamic /*:Int*/ = 20;
-	public static inline var LIST_MIDI_11_SYNTHPAD:Dynamic /*:Int*/ = 21;
-	public static inline var LIST_MIDI_12_SYNTHEFFECTS:Dynamic /*:Int*/ = 22;
-	public static inline var LIST_MIDI_13_WORLD:Dynamic /*:Int*/ = 23;
-	public static inline var LIST_MIDI_14_PERCUSSIVE:Dynamic /*:Int*/ = 24;
-	public static inline var LIST_MIDI_15_SOUNDEFFECTS:Dynamic /*:Int*/ = 25;
+	public static inline var LIST_KEY:Int = 0;
+	public static inline var LIST_SCALE:Int = 1;
+	public static inline var LIST_INSTRUMENT:Int = 2;
+	public static inline var LIST_CATEGORY:Int = 3;
+	public static inline var LIST_SELECTINSTRUMENT:Int = 4;
+	public static inline var LIST_BUFFERSIZE:Int = 5;
+	public static inline var LIST_MOREEXPORTS:Int = 6;
+	public static inline var LIST_EFFECTS:Int = 7;
+	public static inline var LIST_EXPORTS:Int = 8;
+	public static inline var LIST_MIDIINSTRUMENT:Int = 9;
+	public static inline var LIST_MIDI_0_PIANO:Int = 10;
+	public static inline var LIST_MIDI_1_BELLS:Int = 11;
+	public static inline var LIST_MIDI_2_ORGAN:Int = 12;
+	public static inline var LIST_MIDI_3_GUITAR:Int = 13;
+	public static inline var LIST_MIDI_4_BASS:Int = 14;
+	public static inline var LIST_MIDI_5_STRINGS:Int = 15;
+	public static inline var LIST_MIDI_6_ENSEMBLE:Int = 16;
+	public static inline var LIST_MIDI_7_BRASS:Int = 17;
+	public static inline var LIST_MIDI_8_REED:Int = 18;
+	public static inline var LIST_MIDI_9_PIPE:Int = 19;
+	public static inline var LIST_MIDI_10_SYNTHLEAD:Int = 20;
+	public static inline var LIST_MIDI_11_SYNTHPAD:Int = 21;
+	public static inline var LIST_MIDI_12_SYNTHEFFECTS:Int = 22;
+	public static inline var LIST_MIDI_13_WORLD:Int = 23;
+	public static inline var LIST_MIDI_14_PERCUSSIVE:Int = 24;
+	public static inline var LIST_MIDI_15_SOUNDEFFECTS:Int = 25;
 
-	public static inline var MENUTAB_FILE:Dynamic /*:Int*/ = 0;
-	public static inline var MENUTAB_ARRANGEMENTS:Dynamic /*:Int*/ = 1;
-	public static inline var MENUTAB_INSTRUMENTS:Dynamic /*:Int*/ = 2;
-	public static inline var MENUTAB_ADVANCED:Dynamic /*:Int*/ = 3;
-	public static inline var MENUTAB_CREDITS:Dynamic /*:Int*/ = 4;
-	public static inline var MENUTAB_HELP:Dynamic /*:Int*/ = 5;
-	public static inline var MENUTAB_GITHUB:Dynamic /*:Int*/ = 6;
+	public static inline var MENUTAB_FILE:Int = 0;
+	public static inline var MENUTAB_ARRANGEMENTS:Int = 1;
+	public static inline var MENUTAB_INSTRUMENTS:Int = 2;
+	public static inline var MENUTAB_ADVANCED:Int = 3;
+	public static inline var MENUTAB_CREDITS:Int = 4;
+	public static inline var MENUTAB_HELP:Int = 5;
+	public static inline var MENUTAB_GITHUB:Int = 6;
 
 	public static function init():Void {
 		clicklist = false;
@@ -478,7 +478,7 @@ class Control extends Sprite {
 		programsettings.close();
 	}
 
-	public static function setbuffersize(t:Dynamic /*:Int*/):Void {
+	public static function setbuffersize(t:Int):Void {
 		if (t == 0)
 			buffersize = 2048;
 		if (t == 1)
@@ -492,7 +492,7 @@ class Control extends Sprite {
 		programsettings.close();
 	}
 
-	public static function adddrumkitnote(t:Dynamic /*:Int*/, name:String, voice:String, note:Dynamic /*:Int*/ = 60):Void {
+	public static function adddrumkitnote(t:Int, name:String, voice:String, note:Int = 60):Void {
 		if (t == 2 && note == 60)
 			note = 16;
 		drumkit[t].voicelist.push(_presets.voices[voice]);
@@ -514,7 +514,7 @@ class Control extends Sprite {
 		drumkit[t].size++;
 	}
 
-	public static function createdrumkit(t:Dynamic /*:Int*/):Void {
+	public static function createdrumkit(t:Int):Void {
 		// Create Drumkit t at index
 		switch (t) {
 			case 0:
@@ -636,8 +636,8 @@ class Control extends Sprite {
 		}
 	}
 
-	public static function changekey(t:Dynamic /*:Int*/):Void {
-		var keyshift:Dynamic /*:Int*/ = t - key;
+	public static function changekey(t:Int):Void {
+		var keyshift:Int = t - key;
 		for (i in 0...musicbox[currentbox].numnotes) {
 			musicbox[currentbox].notes[i].x += keyshift;
 		}
@@ -647,7 +647,7 @@ class Control extends Sprite {
 		updatepianoroll();
 	}
 
-	public static function changescale(t:Dynamic /*:Int*/):Void {
+	public static function changescale(t:Int):Void {
 		setscale(t);
 		updatepianoroll();
 
@@ -672,7 +672,7 @@ class Control extends Sprite {
 		musicbox[currentbox].setnotespan();
 	}
 
-	public static function changemusicbox(t:Dynamic /*:Int*/):Void {
+	public static function changemusicbox(t:Int):Void {
 		currentbox = t;
 		key = musicbox[t].key;
 		setscale(musicbox[t].scale);
@@ -693,9 +693,9 @@ class Control extends Sprite {
 		Guiclass.changetab(currenttab);
 	}
 
-	public static function _setscale(t1:Dynamic /*:Int*/ = -1, t2:Dynamic /*:Int*/ = -1, t3:Dynamic /*:Int*/ = -1, t4:Dynamic /*:Int*/ = -1,
-			t5:Dynamic /*:Int*/ = -1, t6:Dynamic /*:Int*/ = -1, t7:Dynamic /*:Int*/ = -1, t8:Dynamic /*:Int*/ = -1, t9:Dynamic /*:Int*/ = -1,
-			t10:Dynamic /*:Int*/ = -1, t11:Dynamic /*:Int*/ = -1, t12:Dynamic /*:Int*/ = -1):Void {
+	public static function _setscale(t1:Int = -1, t2:Int = -1, t3:Int = -1, t4:Int = -1,
+			t5:Int = -1, t6:Int = -1, t7:Int = -1, t8:Int = -1, t9:Int = -1,
+			t10:Int = -1, t11:Int = -1, t12:Int = -1):Void {
 		if (t1 == -1) {
 			scalesize = 0;
 		} else if (t2 == -1) {
@@ -803,7 +803,7 @@ class Control extends Sprite {
 		}
 	}
 
-	public static function setscale(t:Dynamic /*:Int*/):Void {
+	public static function setscale(t:Int):Void {
 		currentscale = t;
 		switch (t) {
 			case SCALE_MAJOR:
@@ -858,9 +858,9 @@ class Control extends Sprite {
 
 	public static function updatepianoroll():Void {
 		// Set piano roll based on currently loaded scale
-		var scaleiter:Dynamic /*:Int*/ = -1,
-			pianorolliter:Dynamic /*:Int*/ = 0,
-			lastnote:Dynamic /*:Int*/ = 0;
+		var scaleiter:Int = -1,
+			pianorolliter:Int = 0,
+			lastnote:Int = 0;
 
 		lastnote = key;
 		pianorollsize = 0;
@@ -894,7 +894,7 @@ class Control extends Sprite {
 		numboxes++;
 	}
 
-	public static function copymusicbox(a:Dynamic /*:Int*/, b:Dynamic /*:Int*/):Void {
+	public static function copymusicbox(a:Int, b:Int):Void {
 		musicbox[a].numnotes = musicbox[b].numnotes;
 
 		for (j in 0...musicbox[a].numnotes) {
@@ -923,7 +923,7 @@ class Control extends Sprite {
 		musicbox[a].isplayed = musicbox[b].isplayed;
 	}
 
-	public static function deletemusicbox(t:Dynamic /*:Int*/):Void {
+	public static function deletemusicbox(t:Int):Void {
 		if (currentbox == t)
 			currentbox--;
 		for (i in t...numboxes) {
@@ -942,12 +942,12 @@ class Control extends Sprite {
 		}
 	}
 
-	public static function seekposition(t:Dynamic /*:Int*/):Void {
+	public static function seekposition(t:Int):Void {
 		// Make this smoother someday maybe
 		barposition = t;
 	}
 
-	public static function filllist(t:Dynamic /*:Int*/):Void {
+	public static function filllist(t:Int):Void {
 		list.type = t;
 		switch (t) {
 			case LIST_KEY:
@@ -1056,7 +1056,7 @@ class Control extends Sprite {
 		}
 	}
 
-	public static function setinstrumenttoindex(t:Dynamic /*:Int*/):Void {
+	public static function setinstrumenttoindex(t:Int):Void {
 		voicelist.index = instrument[t].index;
 		if (Help.Left(voicelist.voice[cast(voicelist.index)], 7) == "drumkit") {
 			instrument[t].type = Std.parseInt(Help.Right(voicelist.voice[voicelist.index]));
@@ -1195,7 +1195,7 @@ class Control extends Sprite {
 		showmessage("NEW SONG CREATED");
 	}
 
-	public static function readfilestream():Dynamic /*:Int*/ {
+	public static function readfilestream():Int {
 		fi++;
 		return filestream[cast fi - 1];
 	}
@@ -1270,7 +1270,7 @@ class Control extends Sprite {
 		}
 	}
 
-	public static function legacy_convertfilestring(t:Dynamic /*:Int*/):Void {
+	public static function legacy_convertfilestring(t:Int):Void {
 		switch (t) {
 			case 2: // Before effects and 32 note patterns
 				swing = readfilestream();
@@ -1687,7 +1687,7 @@ class Control extends Sprite {
 		_wav = new ByteArray();
 		_wav.endian = Endian.LITTLE_ENDIAN;
 		_wav.writeUTFBytes("RIFF");
-		var len:Dynamic /*:Int*/ = _data.length;
+		var len:Int = _data.length;
 		_wav.writeInt(len + 36);
 		_wav.writeUTFBytes("WAVE");
 		_wav.writeUTFBytes("fmt ");
@@ -1727,12 +1727,12 @@ class Control extends Sprite {
 		fixmouseclicks = true;
 	}
 
-	public static function changetab(newtab:Dynamic /*:Int*/):Void {
+	public static function changetab(newtab:Int):Void {
 		currenttab = newtab;
 		Guiclass.changetab(newtab);
 	}
 
-	public static function changetab_ifdifferent(newtab:Dynamic /*:Int*/):Void {
+	public static function changetab_ifdifferent(newtab:Int):Void {
 		if (currenttab != newtab) {
 			currenttab = newtab;
 			Guiclass.changetab(newtab);
@@ -1744,12 +1744,12 @@ class Control extends Sprite {
 	// public static var stream:FileStream;
 	#end
 	public static var filestring:String;
-	public static var fi:Dynamic /*:Int*/;
+	public static var fi:Int;
 	public static var filestream:Array<Dynamic>;
 	public static var ceolFilter:FileFilter = new FileFilter("Ceol", "*.ceol");
-	public static var i:Dynamic /*:Int*/;
-	public static var j:Dynamic /*:Int*/;
-	public static var k:Dynamic /*:Int*/;
+	public static var i:Int;
+	public static var j:Int;
+	public static var k:Int;
 	public static var fullscreen:Bool;
 	public static var fullscreentoggleheld:Bool = false;
 
@@ -1760,15 +1760,15 @@ class Control extends Sprite {
 	public static var press_space:Bool;
 	public static var press_enter:Bool;
 
-	public static var keypriority:Dynamic /*:Int*/ = 0;
+	public static var keypriority:Int = 0;
 
 	public static var keyheld:Bool = false;
 
 	public static var clicklist:Bool;
 	public static var clicksecondlist:Bool;
 	public static var copykeyheld:Bool = false;
-	public static var keydelay:Dynamic /*:Int*/;
-	public static var keyboardpressed:Dynamic /*:Int*/ = 0;
+	public static var keydelay:Int;
+	public static var keyboardpressed:Int = 0;
 	public static var fixmouseclicks:Bool = false;
 	public static var mx:Float;
 	public static var my:Float;
@@ -1778,69 +1778,69 @@ class Control extends Sprite {
 	public static var _presets:SiONPresetVoice;
 	public static var voicelist:Voicelistclass;
 	public static var instrument:Array<Instrumentclass> = new Array<Instrumentclass>();
-	public static var numinstrument:Dynamic /*:Int*/;
-	public static var instrumentmanagerview:Dynamic /*:Int*/;
+	public static var numinstrument:Int;
+	public static var instrumentmanagerview:Int;
 	public static var musicbox:Array<Musicphraseclass> = new Array<Musicphraseclass>();
-	public static var numboxes:Dynamic /*:Int*/;
-	public static var looptime:Dynamic /*:Int*/;
-	public static var currentbox:Dynamic /*:Int*/;
-	public static var currentnote:Dynamic /*:Int*/;
-	public static var currentinstrument:Dynamic /*:Int*/;
-	public static var boxsize:Dynamic /*:Int*/;
-	public static var boxcount:Dynamic /*:Int*/;
-	public static var barsize:Dynamic /*:Int*/;
-	public static var barcount:Dynamic /*:Int*/;
-	public static var notelength:Dynamic /*:Int*/;
+	public static var numboxes:Int;
+	public static var looptime:Int;
+	public static var currentbox:Int;
+	public static var currentnote:Int;
+	public static var currentinstrument:Int;
+	public static var boxsize:Int;
+	public static var boxcount:Int;
+	public static var barsize:Int;
+	public static var barcount:Int;
+	public static var notelength:Int;
 	public static var doublesize:Bool;
-	public static var arrangescrolldelay:Dynamic /*:Int*/ = 0;
+	public static var arrangescrolldelay:Int = 0;
 	public static var barposition:Float = 0;
-	public static var drawnoteposition:Dynamic /*:Int*/;
-	public static var drawnotelength:Dynamic /*:Int*/;
-	public static var cursorx:Dynamic /*:Int*/;
-	public static var cursory:Dynamic /*:Int*/;
-	public static var arrangecurx:Dynamic /*:Int*/;
-	public static var arrangecury:Dynamic /*:Int*/;
-	public static var patterncury:Dynamic /*:Int*/;
-	public static var timelinecurx:Dynamic /*:Int*/;
-	public static var instrumentcury:Dynamic /*:Int*/;
-	public static var notey:Dynamic /*:Int*/;
+	public static var drawnoteposition:Int;
+	public static var drawnotelength:Int;
+	public static var cursorx:Int;
+	public static var cursory:Int;
+	public static var arrangecurx:Int;
+	public static var arrangecury:Int;
+	public static var patterncury:Int;
+	public static var timelinecurx:Int;
+	public static var instrumentcury:Int;
+	public static var notey:Int;
 	public static var notename:Array<String> = new Array<String>();
 	public static var scalename:Array<String> = new Array<String>();
-	public static var currentscale:Dynamic /*:Int*/ = 0;
+	public static var currentscale:Int = 0;
 	public static var scale:Array<Int> = new Array<Int>();
-	public static var key:Dynamic /*:Int*/;
-	public static var scalesize:Dynamic /*:Int*/;
+	public static var key:Int;
+	public static var scalesize:Int;
 	public static var pianoroll:Array<Int> = new Array<Int>();
 	public static var invertpianoroll:Array<Int> = new Array<Int>();
-	public static var pianorollsize:Dynamic /*:Int*/;
+	public static var pianorollsize:Int;
 	public static var arrange:Arrangementclass = new Arrangementclass();
 	public static var drumkit:Array<Drumkitclass> = new Array<Drumkitclass>();
-	public static var currenttab:Dynamic /*:Int*/;
-	public static var dragaction:Dynamic /*:Int*/;
-	public static var dragx:Dynamic /*:Int*/;
-	public static var dragy:Dynamic /*:Int*/;
-	public static var dragpattern:Dynamic /*:Int*/;
-	public static var patternmanagerview:Dynamic /*:Int*/;
-	public static var trashbutton:Dynamic /*:Int*/;
+	public static var currenttab:Int;
+	public static var dragaction:Int;
+	public static var dragx:Int;
+	public static var dragy:Int;
+	public static var dragpattern:Int;
+	public static var patternmanagerview:Int;
+	public static var trashbutton:Int;
 	public static var list:Listclass = new Listclass();
 	public static var secondlist:Listclass = new Listclass();
-	public static var midilistselection:Dynamic /*:Int*/;
+	public static var midilistselection:Int;
 	public static var musicplaying:Bool = false;
 	public static var nowexporting:Bool = false;
 	public static var followmode:Bool = false;
-	public static var bpm:Dynamic /*:Int*/;
-	public static var version:Dynamic /*:Int*/;
-	public static var swing:Dynamic /*:Int*/;
-	public static var swingoff:Dynamic /*:Int*/;
-	public static var doubleclickcheck:Dynamic /*:Int*/;
+	public static var bpm:Int;
+	public static var version:Int;
+	public static var swing:Int;
+	public static var swingoff:Int;
+	public static var doubleclickcheck:Int;
 	public static var programsettings:SharedObject;
-	public static var buffersize:Dynamic /*:Int*/;
-	public static var currentbuffersize:Dynamic /*:Int*/;
+	public static var buffersize:Int;
+	public static var currentbuffersize:Int;
 	private static var _data:ByteArray;
 	private static var _wav:ByteArray;
 	public static var message:String;
-	public static var messagedelay:Dynamic /*:Int*/ = 0;
-	public static var startup:Dynamic /*:Int*/ = 0;
+	public static var messagedelay:Int = 0;
+	public static var startup:Int = 0;
 	public static var invokefile:String = "null";
 	public static var ctrl:String;
 
@@ -1848,11 +1848,11 @@ class Control extends Sprite {
 	public static var filepath:String = "";
 	public static var defaultDirectory:String = "";
 	// Global effects
-	public static var effecttype:Dynamic /*:Int*/;
-	public static var effectvalue:Dynamic /*:Int*/;
+	public static var effecttype:Int;
+	public static var effectvalue:Int;
 	public static var effectname:Array<String> = new Array<String>();
 	public static var versionnumber:String;
-	public static var savescreencountdown:Dynamic /*:Int*/;
-	public static var minresizecountdown:Dynamic /*:Int*/;
+	public static var savescreencountdown:Int;
+	public static var minresizecountdown:Int;
 	public static var forceresize:Bool = false;
 }

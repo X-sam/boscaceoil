@@ -12,14 +12,14 @@ class Paletteclass {
 		b = 0;
 	}
 
-	public function setto(r1:Dynamic /*:Int*/, g1:Dynamic /*:Int*/, b1:Dynamic /*:Int*/):Void {
+	public function setto(r1:Int, g1:Int, b1:Int):Void {
 		r = r1;
 		g = g1;
 		b = b1;
 		fixbounds();
 	}
 
-	public function transition(r1:Dynamic /*:Int*/, g1:Dynamic /*:Int*/, b1:Dynamic /*:Int*/, ?speed:Dynamic /*:Int*/):Void {
+	public function transition(r1:Int, g1:Int, b1:Int, ?speed:Int):Void {
 		if (speed == null)
 			speed = 5;
 		if (r < r1) {
@@ -72,7 +72,7 @@ class Paletteclass {
 			b = 255;
 	}
 
-	public var r:Dynamic /*:Int*/;
-	public var g:Dynamic /*:Int*/;
-	public var b:Dynamic /*:Int*/;
+	public var r:Int;
+	public var g:Int;
+	public var b:Int;
 }

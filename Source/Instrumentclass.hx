@@ -22,12 +22,12 @@ class Instrumentclass {
 		volume = 256;
 	}
 
-	public function setfilter(c:Dynamic /*:Int*/, r:Dynamic /*:Int*/):Void {
+	public function setfilter(c:Int, r:Int):Void {
 		cutoff = c;
 		resonance = r;
 	}
 
-	public function setvolume(v:Dynamic /*:Int*/):Void {
+	public function setvolume(v:Int):Void {
 		volume = v;
 	}
 
@@ -43,7 +43,7 @@ class Instrumentclass {
 		}
 	}
 
-	public function changefilterto(c:Dynamic /*:Int*/, r:Dynamic /*:Int*/, v:Dynamic /*:Int*/):Void {
+	public function changefilterto(c:Int, r:Int, v:Int):Void {
 		if (voice != null) {
 			voice.updateVolumes = true;
 			voice.velocity = v;
@@ -51,21 +51,21 @@ class Instrumentclass {
 		}
 	}
 
-	public function changevolumeto(v:Dynamic /*:Int*/):Void {
+	public function changevolumeto(v:Int):Void {
 		if (voice != null) {
 			voice.updateVolumes = true;
 			voice.velocity = v;
 		}
 	}
 
-	public var cutoff:Dynamic /*:Int*/;
-	public var resonance:Dynamic /*:Int*/;
+	public var cutoff:Int;
+	public var resonance:Int;
 
 	public var voice:SiONVoice = new SiONVoice();
 	public var category:String;
 	public var name:String;
-	public var palette:Dynamic /*:Int*/;
-	public var type:Dynamic /*:Int*/;
-	public var index:Dynamic /*:Int*/;
-	public var volume:Dynamic /*:Int*/;
+	public var palette:Int;
+	public var type:Int;
+	public var index:Int;
+	public var volume:Int;
 }

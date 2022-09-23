@@ -37,8 +37,8 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 700;
 					windowheight = (Gfx.linesize * 6) + 35;
-					windowx = Gfx.screenwidthmid - (windowwidth / 2);
-					windowy = Gfx.screenheightmid - (windowheight / 2);
+					windowx = Gfx.screenwidthmid - Std.int(windowwidth / 2);
+					windowy = Gfx.screenheightmid - Std.int(windowheight / 2);
 					windowtext = "Welcome!";
 				}
 
@@ -48,8 +48,8 @@ class Guiclass {
 				addcentertextlabel(windowx, windowy + 30, windowwidth, "Looks like this is your first time using Bosca Ceoil!", 0, true);
 				addcentertextlabel(windowx, windowy + 30 + Gfx.linesize, windowwidth, "Would you like a quick Introduction?", 0, true);
 
-				addbutton(windowx + (windowwidth / 3) - 75, windowy + 30 + (Gfx.linesize * 3), 150, "YES", "help1", 0, true);
-				addbutton(windowx + (2 * windowwidth / 3) - 75, windowy + 30 + (Gfx.linesize * 3), 150, "NO", "closewindow", 0, true);
+				addbutton(windowx + Std.int(windowwidth / 3) - 75, windowy + 30 + (Gfx.linesize * 3), 150, "YES", "help1", 0, true);
+				addbutton(windowx + Std.int(2 * windowwidth / 3) - 75, windowy + 30 + (Gfx.linesize * 3), 150, "NO", "closewindow", 0, true);
 
 				addcentertextlabel(windowx, windowy + 30 + (Gfx.linesize * 5), windowwidth, "(You can access this tour later by clicking HELP.)", 2, true);
 			case "help1":
@@ -179,7 +179,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 450;
 					windowheight = (Gfx.linesize * 1) + (Gfx.linesize * 2) + 35;
-					windowx = (Gfx.screenwidth - 40) / 4;
+					windowx = Std.int((Gfx.screenwidth - 40) / 4);
 					windowy = Gfx.linesize + 10;
 
 					windowtext = "HELP - Arrangements";
@@ -377,7 +377,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 400;
 					windowheight = (Gfx.linesize * 1) + (Gfx.linesize * 2) + 35;
-					windowx = ((Gfx.screenwidth - 40) / 4) * 2;
+					windowx = Std.int(((Gfx.screenwidth - 40) / 4) * 2);
 					windowy = Gfx.linesize + 10;
 
 					windowtext = "HELP - Instruments";
@@ -398,7 +398,7 @@ class Guiclass {
 					windowwidth = 450;
 					windowheight = (Gfx.linesize * 3) + (Gfx.linesize * 2) + 35;
 					windowx = 300;
-					windowy = Gfx.linespacing + Gfx.pianorollposition - 28 - 5 - (Gfx.linesize * 1.5);
+					windowy = Std.int(Gfx.linespacing + Gfx.pianorollposition - 28 - 5 - (Gfx.linesize * 1.5));
 
 					windowtext = "HELP - Instruments";
 				}
@@ -487,7 +487,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 430;
 					windowheight = (Gfx.linesize * 5) + (Gfx.linesize * 2) + 35;
-					windowx = Gfx.screenwidthmid - (windowwidth / 2);
+					windowx = Std.int(Gfx.screenwidthmid - (windowwidth / 2));
 					windowy = Gfx.pianorollposition + (Gfx.linesize * 2) - 5;
 
 					windowtext = "HELP - Tutorial Complete";
@@ -508,7 +508,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 530;
 					windowheight = (Gfx.linesize * 5) + (Gfx.linesize * 2) + 35;
-					windowx = Gfx.screenwidthmid - (windowwidth / 2);
+					windowx = Std.int(Gfx.screenwidthmid - (windowwidth / 2));
 					windowy = Gfx.pianorollposition + (Gfx.linesize * 2) - 5;
 
 					windowtext = "HELP - Tips and Tricks";
@@ -679,7 +679,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 500;
 					windowheight = (Gfx.linesize * 13) + (Gfx.linesize * 2) + 35;
-					windowx = Gfx.screenwidthmid - (windowwidth / 2);
+					windowx = Std.int(Gfx.screenwidthmid - (windowwidth / 2));
 					windowy = (Gfx.linesize * 3) - 5;
 
 					windowtext = "HELP - Tips and Tricks";
@@ -707,7 +707,7 @@ class Guiclass {
 				if (initalise) {
 					windowwidth = 430;
 					windowheight = (Gfx.linesize * 2) + (Gfx.linesize * 2) + 35;
-					windowx = Gfx.screenwidthmid - (windowwidth / 2);
+					windowx = Std.int(Gfx.screenwidthmid - (windowwidth / 2));
 					windowy = Gfx.pianorollposition + (Gfx.linesize * 2) - 5;
 
 					windowtext = "HELP - Tips and Tricks";
@@ -731,57 +731,57 @@ class Guiclass {
 			addtextlabel(windowx + 10 + windowxoffset, windowy + 30 + windowyoffset + (Gfx.linesize * windowline), line, 0, true);
 			if (high != "") {
 				tx = line.indexOf(high);
-				tx = Gfx.len(Help.Left(line, tx));
+				tx = Gfx.len(Help.Left(line, Std.int(tx)));
 				addtextlabel(windowx + 10 + tx + windowxoffset, windowy + 30 + windowyoffset + (Gfx.linesize * windowline), high, 18, true);
 			}
 			if (high2 != "") {
 				tx = line.indexOf(high2);
-				tx = Gfx.len(Help.Left(line, tx));
+				tx = Gfx.len(Help.Left(line, Std.int(tx)));
 				addtextlabel(windowx + 10 + tx + windowxoffset, windowy + 30 + windowyoffset + (Gfx.linesize * windowline), high2, 18, true);
 			}
 		}
 		windowline++;
 	}
 
-	public static function addwindow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/, text:String):Void {
+	public static function addwindow(x:Int, y:Int, w:Int, h:Int, text:String):Void {
 		if (helpwindow != "nothing") {
 			addguipart(x, y, w, h, windowtext, "window", "window");
 		}
 	}
 
-	public static function addtutorialimage(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, img:Dynamic /*:Int*/, towindow:Bool = false):Void {
+	public static function addtutorialimage(x:Float, y:Float, img:Int, towindow:Bool = false):Void {
 		addguipart(x, y, 0, 0, "", "", "tutorialimage", img);
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, text:String, action:String, textoffset:Dynamic /*:Int*/ = 0,
+	public static function addbutton(x:Float, y:Float, w:Float, text:String, action:String, textoffset:Int = 0,
 			towindow:Bool = false):Void {
 		addguipart(x, y, w, Gfx.buttonheight, text, action, "normal", textoffset);
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addlogo(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, towindow:Bool = false):Void {
+	public static function addlogo(x:Float, y:Float, towindow:Bool = false):Void {
 		addguipart(x, y, 356, 44, "BOSCA CEOIL", "logo", "logo");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addtextlabel(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, text:String, col:Dynamic /*:Int*/ = 2, towindow:Bool = false):Void {
+	public static function addtextlabel(x:Float, y:Float, text:String, col:Int = 2, towindow:Bool = false):Void {
 		addguipart(x, y, col, 0, text, "", "textlabel");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addcentertextlabel(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, text:String, col:Dynamic /*:Int*/ = 2,
+	public static function addcentertextlabel(x:Float, y:Float, w:Float, text:String, col:Int = 2,
 			towindow:Bool = false):Void {
-		addguipart(x + ((w / 2) - (Gfx.len(text) / 2)), y, col, 0, text, "", "textlabel");
+		addguipart(Std.int(x + ((w / 2) - (Gfx.len(text) / 2))), y, col, 0, text, "", "textlabel");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addrighttextlabel(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, text:String, col:Dynamic /*:Int*/ = 2, towindow:Bool = false):Void {
+	public static function addrighttextlabel(x:Float, y:Float, text:String, col:Int = 2, towindow:Bool = false):Void {
 		addguipart(x, y, col, 0, text, "", "righttextlabel");
 		if (towindow)
 			button[lastbutton].onwindow = true;
@@ -793,14 +793,14 @@ class Guiclass {
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addrect(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/, col:Dynamic /*:Int*/ = 1,
+	public static function addrect(x:Float, y:Float, w:Float, h:Float, col:Int = 1,
 			action:String = "", towindow:Bool = false):Void {
 		addguipart(x, y, w, h, "", action, "fillrect", col);
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addhighlight(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/, col:Dynamic /*:Int*/ = 1,
+	public static function addhighlight(x:Float, y:Float, w:Float, h:Float, col:Int = 1,
 			action:String = "", towindow:Bool = false):Void {
 		highlightflash = 30;
 		addguipart(x, y, w, h, "", action, "highlight", col);
@@ -808,85 +808,85 @@ class Guiclass {
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addleftarrow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addleftarrow(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "leftarrow");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addrightarrow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addrightarrow(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "rightarrow");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addplayarrow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addplayarrow(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "playarrow");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addpausebutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addpausebutton(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "pause");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addstopbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addstopbutton(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "stop");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addplusbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addplusbutton(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "plus");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addminusbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addminusbutton(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "minus");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function adddownarrow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function adddownarrow(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "downarrow");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function adduparrow(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function adduparrow(x:Float, y:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, 16, 16, "", action, "uparrow");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addscrollupbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addscrollupbutton(x:Float, y:Float, w:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, w, 21, "", action, "scrollup");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addscrolldownbutton(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, action:String, towindow:Bool = false):Void {
+	public static function addscrolldownbutton(x:Float, y:Float, w:Float, action:String, towindow:Bool = false):Void {
 		addguipart(x, y, w, 21, "", action, "scrolldown");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addvariable(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, variable:String, col:Dynamic /*:Int*/ = 0, towindow:Bool = false):Void {
+	public static function addvariable(x:Float, y:Float, variable:String, col:Int = 0, towindow:Bool = false):Void {
 		addguipart(x, y, col, 0, "", variable, "variable");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addhorizontalslider(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, variable:String, towindow:Bool = false):Void {
+	public static function addhorizontalslider(x:Float, y:Float, w:Float, variable:String, towindow:Bool = false):Void {
 		addguipart(x, y, w, 26, "", variable, "horizontalslider");
 		if (towindow)
 			button[lastbutton].onwindow = true;
 	}
 
-	public static function addControl(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, type:String):Void {
+	public static function addControl(x:Float, y:Float, type:String):Void {
 		// For complex multipart things
 		if (type == "changepatternlength") {
 			addrect(x, y - 4, 320, 26);
@@ -940,12 +940,12 @@ class Guiclass {
 		}
 	}
 
-	public static function addguipart(x:Dynamic /*:Int*/, y:Dynamic /*:Int*/, w:Dynamic /*:Int*/, h:Dynamic /*:Int*/, contents:String, act:String = "",
-			sty:String = "normal", toffset:Dynamic /*:Int*/ = 0):Void {
+	public static function addguipart(x:Float, y:Float, w:Float, h:Float, contents:String, act:String = "",
+			sty:String = "normal", toffset:Int = 0):Void {
 		if (button.length == 0)
 			init();
 
-		var i:Dynamic /*:Int*/, z:Dynamic /*:Int*/;
+		var i:Int, z:Int;
 		if (numbuttons == 0) {
 			// If there are no active buttons, Z=0;
 			z = 0;
@@ -1044,11 +1044,11 @@ class Guiclass {
 						if (button[i].position.y > Gfx.screenheight - button[i].position.height)
 							button[i].position.y = Gfx.screenheight - button[i].position.height;
 
-						windowddx = windowx - button[i].position.x;
-						windowddy = windowy - button[i].position.y;
+						windowddx = windowx - Std.int(button[i].position.x);
+						windowddy = windowy - Std.int(button[i].position.y);
 
-						windowx = button[i].position.x;
-						windowy = button[i].position.y;
+						windowx = Std.int(button[i].position.x);
+						windowy = Std.int(button[i].position.y);
 
 						for (j in 0...numbuttons) {
 							if (button[j].active && button[j].visable) {
@@ -1085,7 +1085,7 @@ class Guiclass {
 	}
 
 	public static function cleanup():Void {
-		var i:Dynamic /*:Int*/ = 0;
+		var i:Int = 0;
 		i = numbuttons - 1;
 		while (i >= 0 && !button[i].active) {
 			numbuttons--;
@@ -1162,9 +1162,9 @@ class Guiclass {
 				} else if (button[i].style == "tutorialimage") {
 					Gfx.drawimage(button[i].textoffset + 8, button[i].position.x, button[i].position.y);
 				} else if (button[i].style == "textlabel") {
-					Gfx.print(button[i].position.x, button[i].position.y, button[i].text, button[i].position.width, false, true);
+					Gfx.print(button[i].position.x, button[i].position.y, button[i].text, Std.int(button[i].position.width), false, true);
 				} else if (button[i].style == "righttextlabel") {
-					Gfx.rprint(button[i].position.x, button[i].position.y, button[i].text, button[i].position.width, true);
+					Gfx.rprint(button[i].position.x, button[i].position.y, button[i].text, Std.int(button[i].position.width), true);
 				} else if (button[i].style == "fillrect") {
 					Gfx.fillrect(button[i].position.x, button[i].position.y, button[i].position.width, button[i].position.height, button[i].textoffset);
 				} else if (button[i].style == "highlight") {
@@ -1220,7 +1220,7 @@ class Guiclass {
 						Gfx.fillrect(button[i].position.x, button[i].position.y, 20, 26, 6);
 						Gfx.fillrect(button[i].position.x + 2, button[i].position.y + 2, 16, 22, 5);
 
-						tx = Std.int((Control.effectvalue));
+						tx = Control.effectvalue;
 						Gfx.fillrect(button[i].position.x + tx, button[i].position.y, 20, 26, 4);
 						Gfx.fillrect(button[i].position.x + tx + 2, button[i].position.y + 2, 16, 22, 2);
 
@@ -1230,13 +1230,13 @@ class Guiclass {
 					}
 				} else if (button[i].style == "variable") {
 					if (button[i].action == "barcount") {
-						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.barcount), button[i].position.width, false, true);
+						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.barcount), Std.int(button[i].position.width), false, true);
 					} else if (button[i].action == "boxcount") {
-						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.boxcount), button[i].position.width, false, true);
+						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.boxcount), Std.int(button[i].position.width), false, true);
 					} else if (button[i].action == "bpm") {
-						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.bpm), button[i].position.width, false, true);
+						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.bpm), Std.int(button[i].position.width), false, true);
 					} else if (button[i].action == "buffersize") {
-						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.buffersize), button[i].position.width, false, true);
+						Gfx.print(button[i].position.x, button[i].position.y, Std.string(Control.buffersize), Std.int(button[i].position.width), false, true);
 					} else if (button[i].action == "buffersizealert") {
 						if (Control.buffersize != Control.currentbuffersize) {
 							if (Help.slowsine >= 32) {
@@ -1254,7 +1254,7 @@ class Guiclass {
 							Gfx.print(button[i].position.x + 10, button[i].position.y, Std.string(Control.swing), 0, false, true);
 						}
 					} else if (button[i].action == "currenteffect") {
-						Gfx.rprint(button[i].position.x, button[i].position.y, Control.effectname[Control.effecttype], button[i].position.width, true);
+						Gfx.rprint(button[i].position.x, button[i].position.y, Control.effectname[Control.effecttype], Std.int(button[i].position.width), true);
 					} else if (button[i].action == "currentinstrument") {
 						if (Control.currentbox > -1) {
 							Gfx.print(button[i].position.x, button[i].position.y,
@@ -1349,7 +1349,7 @@ class Guiclass {
 		}
 	}
 
-	public static function findbuttonbyaction(t:String):Dynamic /*:Int*/ {
+	public static function findbuttonbyaction(t:String):Int {
 		for (i in 0...numbuttons) {
 			if (button[i].active) {
 				if (button[i].action == t) {
@@ -1360,7 +1360,7 @@ class Guiclass {
 		return 0;
 	}
 
-	public static function changetab(t:Dynamic /*:Int*/):Void {
+	public static function changetab(t:Int):Void {
 		// Delete all buttons when tabs change, and create new ones
 		deleteall();
 
@@ -1495,7 +1495,7 @@ class Guiclass {
 		}
 	}
 
-	public static function dobuttonmoveaction(i:Dynamic /*:Int*/):Void {
+	public static function dobuttonmoveaction(i:Int):Void {
 		currentbutton = button[i].action;
 
 		if (currentbutton == "window") {
@@ -1527,11 +1527,11 @@ class Guiclass {
 					+ Gfx.buttonheight
 					+ 4
 					+ 20) {
-				var barposition:Dynamic /*:Int*/ = Control.mx - (button[i].position.x + 5);
+				var barposition:Int = Std.int(Control.mx - (button[i].position.x + 5));
 				if (barposition < 0)
 					barposition = 0;
 				if (barposition > button[i].position.width)
-					barposition = button[i].position.width;
+					barposition = Std.int(button[i].position.width);
 
 				Control.effectvalue = barposition;
 				Control.updateeffects();
@@ -1565,7 +1565,7 @@ class Guiclass {
 		}
 	}
 
-	public static function dobuttonaction(i:Dynamic /*:Int*/):Void {
+	public static function dobuttonaction(i:Int):Void {
 		helpcondition_set = "nothing";
 		currentbutton = button[i].action;
 		button[i].press();
@@ -1851,32 +1851,32 @@ class Guiclass {
 	}
 
 	public static var button:Array<Guibutton> = new Array<Guibutton>();
-	public static var numbuttons:Dynamic /*:Int*/;
-	public static var maxbuttons:Dynamic /*:Int*/;
+	public static var numbuttons:Int;
+	public static var maxbuttons:Int;
 
-	public static var tx:Dynamic /*:Int*/;
-	public static var ty:Dynamic /*:Int*/;
-	public static var timage:Dynamic /*:Int*/;
-	public static var tw:Dynamic /*:Int*/;
-	public static var th:Dynamic /*:Int*/;
+	public static var tx:Float;
+	public static var ty:Float;
+	public static var timage:Int;
+	public static var tw:Float;
+	public static var th:Float;
 	public static var currentbutton:String;
-	public static var lastbutton:Dynamic /*:Int*/;
-	public static var highlightflash:Dynamic /*:Int*/;
+	public static var lastbutton:Int;
+	public static var highlightflash:Int;
 
 	public static var windowcheck:Bool;
 	public static var windowdrag:Bool = false;
 	public static var overwindow:Bool = false;
-	public static var windowddx:Dynamic /*:Int*/;
-	public static var windowddy:Dynamic /*:Int*/;
-	public static var windowdx:Dynamic /*:Int*/;
-	public static var windowdy:Dynamic /*:Int*/;
-	public static var windowx:Dynamic /*:Int*/;
-	public static var windowy:Dynamic /*:Int*/;
-	public static var windowwidth:Dynamic /*:Int*/;
-	public static var windowheight:Dynamic /*:Int*/;
-	public static var windowline:Dynamic /*:Int*/;
-	public static var windowxoffset:Dynamic /*:Int*/;
-	public static var windowyoffset:Dynamic /*:Int*/;
+	public static var windowddx:Int;
+	public static var windowddy:Int;
+	public static var windowdx:Float;
+	public static var windowdy:Float;
+	public static var windowx:Int;
+	public static var windowy:Int;
+	public static var windowwidth:Int;
+	public static var windowheight:Int;
+	public static var windowline:Int;
+	public static var windowxoffset:Int;
+	public static var windowyoffset:Int;
 	public static var windowtext:String;
 
 	public static var helpwindow:String;

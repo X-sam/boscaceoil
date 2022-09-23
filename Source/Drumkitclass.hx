@@ -11,7 +11,7 @@ class Drumkitclass {
 		size = 0;
 	}
 
-	public function updatefilter(cutoff:Dynamic /*:Int*/, resonance:Dynamic /*:Int*/):Void {
+	public function updatefilter(cutoff:Int, resonance:Int):Void {
 		for (i in 0...size) {
 			if (voicelist[i].channelParam.cutoff != cutoff || voicelist[i].channelParam.resonance != resonance) {
 				voicelist[i].setFilterEnvelop(0, cutoff, resonance);
@@ -19,7 +19,7 @@ class Drumkitclass {
 		}
 	}
 
-	public function updatevolume(volume:Dynamic /*:Int*/):Void {
+	public function updatevolume(volume:Int):Void {
 		for (i in 0...size) {
 			if (voicelist[i].velocity != volume) {
 				voicelist[i].updateVolumes = true;
@@ -33,5 +33,5 @@ class Drumkitclass {
 	public var voicenote:Array<Int> = new Array<Int>();
 	public var midivoice:Array<Int> = new Array<Int>();
 	public var kitname:String;
-	public var size:Dynamic /*:Int*/;
+	public var size:Int;
 }

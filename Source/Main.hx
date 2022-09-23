@@ -28,6 +28,7 @@ import includes.Render.render;
 import Gfx;
 
 class Main extends Sprite {
+
 	public function new():Void {
 		super();
 		_rate = 1000 / TARGET_FPS; // how long (in seconds) each frame is
@@ -165,8 +166,8 @@ class Main extends Sprite {
 
 	private function handleResize(e:Dynamic):Void {
 		// adjust the gui to fit the new device resolution
-		var tempwidth:Dynamic /*:Int*/;
-		var tempheight:Dynamic /*:Int*/;
+		var tempwidth:Int;
+		var tempheight:Int;
 		if (e != null) {
 			e.preventDefault();
 			tempwidth = e.target.stageWidth;
@@ -209,8 +210,8 @@ class Main extends Sprite {
 		{
 			addEventListener(Event.DEACTIVATE, __deactivate__);
 			addEventListener(Event.ACTIVATE, __activate__);
-			// NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, __activate__); TODO:FIXME: add -Sam!
-			// NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, __deactivate__);
+			//NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, __activate__); //TODO:FIXME: add -Sam!
+			//NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, __deactivate__);
 		}
 		#end
 		#if (CONFIG == "web")
@@ -332,12 +333,12 @@ class Main extends Sprite {
 	public var key:KeyPoll;
 
 	// Timer information (a shout out to ChevyRay for the implementation)
-	public static inline var TARGET_FPS:Dynamic /*:Float*/ = 30; // the fixed-FPS we want the Control to run at
+	public static inline var TARGET_FPS:Float = 30; // the fixed-FPS we want the Control to run at
 
-	private var _rate:Dynamic /*:Float*/; // how long (in seconds) each frame is
-	private var _skip:Dynamic /*:Float*/; // this tells us to allow a maximum of 10 frame skips
-	private var _last:Dynamic /*:Float*/ = -1;
-	private var _current:Dynamic /*:Float*/ = 0;
-	private var _delta:Dynamic /*:Float*/ = 0;
+	private var _rate:Float; // how long (in seconds) each frame is
+	private var _skip:Float; // this tells us to allow a maximum of 10 frame skips
+	private var _last:Float = -1;
+	private var _current:Float = 0;
+	private var _delta:Float = 0;
 	private var _timer:Timer = new Timer(4);
 }

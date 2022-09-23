@@ -85,7 +85,7 @@ class KeyPoll {
 	public var hasmiddlereleased:Bool = false;
 	public var middlepress:Bool = false;
 	public var onscreen:Bool = true;
-	public var mousewheel:Dynamic /*:Int*/ = 0;
+	public var mousewheel:Int = 0;
 
 	public var shiftheld:Bool = false;
 	public var ctrlheld:Bool = false;

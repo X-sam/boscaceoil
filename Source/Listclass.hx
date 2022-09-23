@@ -21,7 +21,7 @@ class Listclass {
 		selection = -1;
 	}
 
-	public function init(xp:Dynamic /*:Int*/, yp:Dynamic /*:Int*/):Void {
+	public function init(xp:Float, yp:Float):Void {
 		x = xp;
 		y = yp;
 		active = true;
@@ -35,7 +35,7 @@ class Listclass {
 
 	public function getwidth():Void {
 		w = 0;
-		var temp:Dynamic /*:Int*/;
+		var temp:Int;
 		for (i in 0...numitems) {
 			temp = Gfx.len(item[i]);
 			if (w < temp)
@@ -45,12 +45,12 @@ class Listclass {
 	}
 
 	public var item:Array<String> = new Array<String>();
-	public var numitems:Dynamic /*:Int*/;
+	public var numitems:Int;
 	public var active:Bool;
-	public var x:Dynamic /*:Int*/;
-	public var y:Dynamic /*:Int*/;
-	public var w:Dynamic /*:Int*/;
-	public var h:Dynamic /*:Int*/;
-	public var type:Dynamic /*:Int*/;
-	public var selection:Dynamic /*:Int*/;
+	public var x:Float;
+	public var y:Float;
+	public var w:Float;
+	public var h:Float;
+	public var type:Int;
+	public var selection:Int;
 }
